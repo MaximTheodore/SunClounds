@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:SunClounds"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ThemeLib;component/Themes/Day.xaml" />
+                <ResourceDictionary Source="/ThemeLib;component/Themes/Night.xaml" />
+                <ResourceDictionary Source="/ThemeLib;component/Themes/MorningEvening.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

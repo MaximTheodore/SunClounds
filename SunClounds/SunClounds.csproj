@@ -17,4 +17,8 @@
     <Folder Include="ViewModel\Helpers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TheneLib\ThemeLib.csproj" />
+  </ItemGroup>
+
 </Project>
