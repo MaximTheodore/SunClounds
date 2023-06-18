@@ -22,7 +22,7 @@ namespace SunClounds.View
         public Window1()
         {
             InitializeComponent();
-            Page.Content = new SettingsPage();
+            Page.Content = new WeatherPage();
         }
     }
 }

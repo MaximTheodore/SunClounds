@@ -27,11 +27,15 @@ namespace ThemeLib
             {
                 themeName = "Night";
                 backgroundImage = new BitmapImage(new Uri("pack://application:,,,/ThemeLib;component/Themes/Night.png"));
+                SetTheme(themeName);
+                SetBackgroundImage(backgroundImage);
             }
-            else if (currentTime.Hour >= 4 && currentTime.Hour <= 11)
+            else if (currentTime.Hour >= 16 && currentTime.Hour <= 23)
             {
                 themeName = "MorningEvening";
                 backgroundImage = new BitmapImage(new Uri("pack://application:,,,/ThemeLib;component/Themes/MorningEvening.png"));
+                SetTheme(themeName);
+                SetBackgroundImage(backgroundImage);
             }
 
 
