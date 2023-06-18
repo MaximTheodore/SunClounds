@@ -14,7 +14,7 @@
         <Grid Margin="0,0,270,0" Background="#FFFFCCBA" Height="190" VerticalAlignment="Center" HorizontalAlignment="Right" Width="260">
             <Button Content="Узнать погоду" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Width="230" Height="30" BorderBrush="{x:Null}" Background="#FF72AAC5" Foreground="#FFF0F0F0" FontSize="16" Click="Button_Click"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,15,0,0" TextWrapping="Wrap" Text="SunClouds" VerticalAlignment="Top" Width="230" Height="30" FontSize="20" TextAlignment="Center" Foreground="#FFF0F0F0"/>
-            <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="Ваш город" VerticalAlignment="Center" Width="230" Height="30" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" Background="#FF72AAC5" FontSize="16" TextAlignment="Center"/>
+            <TextBox x:Name="cityNameTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Ваш город" VerticalAlignment="Center" Width="230" Height="30" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" Background="#FF72AAC5" FontSize="16" TextAlignment="Center"/>
         </Grid>
 
     </Grid>

@@ -21,10 +21,18 @@ namespace SunClounds.View
     /// </summary>
     public partial class WeatherPage : Page
     {
-        public WeatherPage()
+        public WeatherPage(string cityName, string feelsLike, string minTemperature, string maxTemperature, string pressure, string windSpeed, string windDegree, string humidity)
         {
             InitializeComponent();
-            DataContext = new WeatherViewModel("Moscow");
+
+            feelsLikeTextBox.Text = $"Ощущение:\n{feelsLike}";
+            minTemperatureTextBlock.Text = $"Мин:\n{minTemperature}";
+            maxTemperatureTextBlock.Text = $"Макс:\n{maxTemperature}";
+            humidityTextBlock.Text = $"Влажность:\n{humidity}";
+            pressureTextBlock.Text = $"Давление:\n{pressure} мм. рт. ст";
+            windSpeedTextBlock.Text = $"Ветер м/c\n{windSpeed}";
+            windDegreeTextBlock.Text = $"Ветер °\n{windDegree}";
+            DataContext = new WeatherViewModel(cityName);
         }
        
     }

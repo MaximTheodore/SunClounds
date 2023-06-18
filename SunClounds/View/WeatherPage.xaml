@@ -25,13 +25,13 @@
         </Grid>
         <Grid Background="#FFFFCCBA" Margin="30,175,36,0" Height="103" VerticalAlignment="Top"/>
         <Grid Grid.Column="1" Background="#FFFFCCBA" Margin="30,80,36,0" Height="84" VerticalAlignment="Top">
-            <TextBlock HorizontalAlignment="Left" Margin="114,14,0,0" TextWrapping="Wrap" Text="Ощущение:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="30" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="209,14,0,0" TextWrapping="Wrap" Text="Мин." VerticalAlignment="Top" TextAlignment="Center" Width="44" Height="30" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="258,14,0,0" TextWrapping="Wrap" Text="Макс." VerticalAlignment="Top" TextAlignment="Center" Width="55" Height="30" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="318,14,0,0" TextWrapping="Wrap" Text="Давление:" VerticalAlignment="Top" TextAlignment="Center" Width="85" Height="30" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="408,14,0,0" TextWrapping="Wrap" Text="Влажность:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="30" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="503,14,0,0" TextWrapping="Wrap" Text="Ветер м\с:" VerticalAlignment="Top" TextAlignment="Center" Height="30" Width="85" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock HorizontalAlignment="Left" Margin="593,14,0,0" TextWrapping="Wrap" Text="Ветер °:" VerticalAlignment="Top" Width="65" Height="30" TextAlignment="Center" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock x:Name="feelsLikeTextBox" HorizontalAlignment="Left" Margin="80,14,0,0" TextWrapping="Wrap" Text="Ощущение:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock x:Name="minTemperatureTextBlock" HorizontalAlignment="Left" Margin="175,14,0,0" TextWrapping="Wrap" Text="Мин." VerticalAlignment="Top" TextAlignment="Center" Width="44" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock x:Name="maxTemperatureTextBlock" HorizontalAlignment="Left" Margin="224,14,0,0" TextWrapping="Wrap" Text="Макс." VerticalAlignment="Top" TextAlignment="Center" Width="55" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock x:Name="pressureTextBlock" HorizontalAlignment="Left" Margin="284,14,0,0" TextWrapping="Wrap" Text="Давление:" VerticalAlignment="Top" TextAlignment="Center" Width="107" Height="50" FontSize="16" Foreground="#FFF0F0F0" RenderTransformOrigin="0.315,0.46"/>
+            <TextBlock x:Name="humidityTextBlock" HorizontalAlignment="Left" Margin="396,14,0,0" TextWrapping="Wrap" Text="Влажность:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock x:Name="windSpeedTextBlock" HorizontalAlignment="Left" Margin="491,14,0,0" TextWrapping="Wrap" Text="Ветер м\с:" VerticalAlignment="Top" TextAlignment="Center" Height="50" Width="85" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock x:Name="windDegreeTextBlock" HorizontalAlignment="Left" Margin="581,14,0,0" TextWrapping="Wrap" Text="Ветер °:" VerticalAlignment="Top" Width="65" Height="50" TextAlignment="Center" FontSize="16" Foreground="#FFF0F0F0"/>
         </Grid>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="30,0,0,0" TextWrapping="Wrap" Text="Погода" VerticalAlignment="Top" Width="320" Height="32.04" FontSize="24"/>
         <Button Content="Настройки" Margin="0,0,30,0" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="170,1,1,1" FontSize="24" HorizontalAlignment="Right" Width="320" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
