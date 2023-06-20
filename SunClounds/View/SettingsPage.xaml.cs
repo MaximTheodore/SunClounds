@@ -24,7 +24,6 @@ namespace SunClounds.View
         public SettingsPage()
         {
             InitializeComponent();
-            ThemeManager.SetThemeBasedOnTime();
 
         }
 

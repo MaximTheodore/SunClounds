@@ -12,11 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ThemeLib
 {
     public static class ThemeManager
     {
+        private static DispatcherTimer timer;
+
         public static void SetThemeBasedOnTime()
         {
             DateTime currentTime = DateTime.Now;
@@ -38,9 +41,17 @@ namespace ThemeLib
                 SetBackgroundImage(backgroundImage);
             }
 
+            // Create a DispatcherTimer to update the theme periodically
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMinutes(1); // Update the theme every minute
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
 
-            SetTheme(themeName);
-            SetBackgroundImage(backgroundImage);
+        private static void Timer_Tick(object sender, EventArgs e)
+        {
+            // Update the theme based on the current time
+            SetThemeBasedOnTime();
         }
 
         private static void SetTheme(string themeName)
@@ -65,4 +76,5 @@ namespace ThemeLib
             }
         }
     }
+
 }

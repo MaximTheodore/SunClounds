@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThemeLib;
 
 namespace SunClounds.View
 {
@@ -19,10 +20,14 @@ namespace SunClounds.View
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1()
+        public Window1(string cityName, string feelsLike, string minTemperature, string maxTemperature, string pressure, string windSpeed, string windDegree, string humidity)
         {
             InitializeComponent();
-            Page.Content = new WeatherPage();
+            Page.Content = new WeatherPage(cityName, feelsLike, minTemperature, maxTemperature, pressure, windSpeed, windDegree, humidity);
+
+            cityNameTextBlock.Text = cityName;
         }
+
+
     }
 }

@@ -3,22 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:custom="clr-namespace:ThemeLib;assembly=ThemeLib"
         xmlns:local="clr-namespace:SunClounds.View"
         mc:Ignorable="d"
         Title="" WindowStyle="None" Height="600" Width="1100">
+   
+
     <Grid>
-
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="290"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Border Background="#FFFFCCBA">
-            <TextBlock TextWrapping="Wrap" Text="Название города" Margin="0,5,0,0" TextAlignment="Center" Foreground="#FF72AAC5" FontSize="24" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="290"/>
+            <TextBlock x:Name="cityNameTextBlock" TextWrapping="Wrap" Text="Название города" Margin="0,5,0,0" TextAlignment="Center" Foreground="#FF72AAC5" FontSize="24" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="290"/>
         </Border>
         <Button Grid.Column="1" Content="✖" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20"/>
         <Button Grid.Column="1" Content="☐" Margin="0,10,36,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" FontWeight="Bold" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20"/>
         <Button Grid.Column="1" Content="–" Margin="0,10,62,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" FontWeight="Bold" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20"/>
-         <Frame x:Name="Page" Margin="0 40 0 0" Grid.Column="1"></Frame>
+        <Frame x:Name="Page" Margin="0 40 0 0" Grid.Column="1"></Frame>
     </Grid>
 </Window>

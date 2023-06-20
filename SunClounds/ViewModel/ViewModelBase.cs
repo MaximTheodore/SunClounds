@@ -3,8 +3,10 @@ using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Newtonsoft.Json;
+using SunClounds.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
@@ -26,6 +28,9 @@ namespace SunClounds.ViewModel
         private bool isLoading;
         private string errorMessage;
         private static string ApiKey = "885c1735362d4619b1e162629231606";
+        public List<HourlyWeatherModel> HourlyWeather { get; set; }
+
+
 
         public WeatherViewModel(string city)
         {
@@ -33,9 +38,8 @@ namespace SunClounds.ViewModel
             ChangeChartCommand = new RelayCommand<string>(ChangeChart);
             CityName = city;
             GetWeather(city);
-            LoadDataCommand.Execute(null); // Вызов команды для загрузки данных и обновления графика
         }
-
+       
 
         public WeatherModel WeatherData
         {
@@ -60,6 +64,7 @@ namespace SunClounds.ViewModel
             get { return errorMessage; }
             set { SetProperty(ref errorMessage, value); }
         }
+
 
         public ICommand LoadDataCommand { get; }
 
@@ -164,13 +169,13 @@ namespace SunClounds.ViewModel
             switch (selectedChart)
             {
                 case "Temperature":
-                    chartPoints.AddRange(hourlyWeather.Select((hourly, index) => new ObservablePoint(index, (int)-hourly.TemperatureC)));
+                    chartPoints.AddRange(hourlyWeather.Select((hourly, index) => new ObservablePoint(index, (int)hourly.TemperatureC)));
                     break;
                 case "FeelsLike":
-                    chartPoints.AddRange(hourlyWeather.Select((hourly, index) => new ObservablePoint(index, (int)-hourly.FeelsLikeC)));
+                    chartPoints.AddRange(hourlyWeather.Select((hourly, index) => new ObservablePoint(index, (int)hourly.FeelsLikeC)));
                     break;
                 case "Pressure":
-                    chartPoints.AddRange(hourlyWeather.Select((hourly, index) => new ObservablePoint(index, (int)-hourly.PressureMb)));
+                    chartPoints.AddRange(hourlyWeather.Select((hourly, index) => new ObservablePoint(index, (int)hourly.PressureMb)));
                     break;
             }
 
@@ -184,106 +189,22 @@ namespace SunClounds.ViewModel
                 }
             };
         }
+
+        private string time;
+
+        public string Time { get => time; set => SetProperty(ref time, value); }
+
+        private string temperature;
+
+        public string Temperature { get => temperature; set => SetProperty(ref temperature, value); }
+
+        private string humidity;
+
+        public string Humidity { get => humidity; set => SetProperty(ref humidity, value); }
+
+        private string feelsLike;
+
+        public string FeelsLike { get => feelsLike; set => SetProperty(ref feelsLike, value); }
     }
-    public class WeatherModel
-    {
-        [JsonProperty("location")]
-        public LocationModel Location { get; set; }
-
-        [JsonProperty("current")]
-        public CurrentWeatherModel CurrentWeather { get; set; }
-
-        [JsonProperty("forecast")]
-        public ForecastModel Forecast { get; set; }
-    }
-
-    public class LocationModel
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("lat")]
-        public double Latitude { get; set; }
-
-        [JsonProperty("lon")]
-        public double Longitude { get; set; }
-    }
-
-    public class CurrentWeatherModel
-    {
-        [JsonProperty("temp_c")]
-        public double TemperatureC { get; set; }
-
-        [JsonProperty("feelslike_c")]
-        public double FeelsLikeC { get; set; }
-
-        [JsonProperty("temp_f")]
-        public double TemperatureF { get; set; }
-
-        [JsonProperty("feelslike_f")]
-        public double FeelsLikeF { get; set; }
-
-        [JsonProperty("wind_kph")]
-        public double WindSpeed { get; set; }
-
-        [JsonProperty("wind_degree")]
-        public string WindDirection { get; set; }
-
-        [JsonProperty("pressure_mb")]
-        public double PressureMb { get; set; }
-
-        [JsonProperty("humidity")]
-        public int Humidity { get; set; }
-
-        [JsonProperty("condition")]
-        public ConditionModel Condition { get; set; }
-    }
-
-    public class ConditionModel
-    {
-        [JsonProperty("text")]
-        public string Text { get; set; }
-    }
-
-    public class ForecastModel
-    {
-        [JsonProperty("forecastday")]
-        public List<ForecastDayModel> ForecastDays { get; set; }
-    }
-
-    public class ForecastDayModel
-    {
-        [JsonProperty("date")]
-        public string Date { get; set; }
-
-        [JsonProperty("hour")]
-        public List<HourlyWeatherModel> HourlyWeather { get; set; }
-    }
-
-    public class HourlyWeatherModel
-    {
-        [JsonProperty("time")]
-        public string Time { get; set; }
-
-        [JsonProperty("temp_c")]
-        public double TemperatureC { get; set; }
-
-        [JsonProperty("feelslike_c")]
-        public double FeelsLikeC { get; set; }
-
-        [JsonProperty("temp_f")]
-        public double TemperatureF { get; set; }
-
-        [JsonProperty("feelslike_f")]
-        public double FeelsLikeF { get; set; }
-
-        [JsonProperty("pressure_mb")]
-        public double PressureMb { get; set; }
-
-        [JsonProperty("humidity")]
-        public int Humidity { get; set; }
-
-        [JsonProperty("condition")]
-        public ConditionModel Condition { get; set; }
-    }
+   
 }
