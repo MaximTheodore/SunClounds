@@ -51,7 +51,7 @@
 
 
 
-    <Style x:Key="CardStyle" TargetType="UserControl">
+    <Style x:Key="CardStyle" TargetType="Grid">
         <Setter Property="Background" Value="#591E6E" />
     </Style>
 

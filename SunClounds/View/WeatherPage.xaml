@@ -26,9 +26,9 @@
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
         </Grid>
-        <Border  Margin="30,175,30,0" Height="130" VerticalAlignment="Top">
+        <Border  Margin="30,175,30,0" Height="140" VerticalAlignment="Top">
 
-            <ListView Style="{StaticResource ListViewStyle}" Margin="0,0,0,0" 
+            <ListView Style="{StaticResource ListViewStyle}" 
           xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
           >
                 <ListView.ItemContainerStyle>
