@@ -141,10 +141,14 @@ namespace SunClounds.Model
                         return "/img/Cloudy.png";
                     case "снег":
                         return "/img/Snow.png";
-                    case "thunderstorm":
+                    case "гроза":
                         return "/img/Thunderstorm.png";
                     case "пасмурно":
-                        return "/img/Downpour.png";
+                        return "/img/Downpour.png"; 
+                    case "метель":
+                        return "/img/Blizzard.png";
+                    case "ветренно":
+                        return "/img/Wind.png";
                     default:
                         return null;
                 }
