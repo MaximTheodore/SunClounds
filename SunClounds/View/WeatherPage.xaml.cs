@@ -36,5 +36,8 @@ namespace SunClounds.View
             DataContext = new WeatherViewModel(cityName);
         }
 
+        
+
+
     }
 }

@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:custom="clr-namespace:ThemeLib;assembly=ThemeLib"
-        xmlns:local="clr-namespace:SunClounds.View"
+        xmlns:local="clr-namespace:SunClounds.View" xmlns:viewmodel="clr-namespace:SunClounds.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:CommandForBtn}"
         mc:Ignorable="d"
+        DataContext="{x:Static viewmodel:CommandForBtn.SharedCommand}"
         Title="" WindowStyle="None" Height="600" Width="1100">
    
 
@@ -17,9 +18,10 @@
         <Border Background="#FFFFCCBA">
             <TextBlock x:Name="cityNameTextBlock" TextWrapping="Wrap" Text="Название города" Margin="0,5,0,0" TextAlignment="Center" Foreground="#FF72AAC5" FontSize="24" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="290"/>
         </Border>
-        <Button Grid.Column="1" Content="✖" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20"/>
-        <Button Grid.Column="1" Content="☐" Margin="0,10,36,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" FontWeight="Bold" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20"/>
-        <Button Grid.Column="1" Content="–" Margin="0,10,62,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" FontWeight="Bold" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20"/>
-        <Frame x:Name="Page" Margin="0 40 0 0" Grid.Column="1"></Frame>
+        <Button Grid.Column="1" Content="✖" Margin="0,10,10,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20" Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+        <Button Grid.Column="1" Content="☐" Margin="0,10,36,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" FontWeight="Bold" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20" Command="{Binding MaximizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+        <Button Grid.Column="1" Content="➖" Margin="0,10,62,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" FontWeight="Bold" Background="{x:Null}" Foreground="#FF72AAC5" HorizontalAlignment="Right" Width="20" Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+
+        <Frame x:Name="Page" Margin="0 40 0 0" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

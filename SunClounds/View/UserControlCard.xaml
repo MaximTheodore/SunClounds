@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="SunClounds.View.UserControlCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SunClounds.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:SunClounds.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:WeatherViewModel}"
+             mc:Ignorable="d" 
+             
+             d:DesignHeight="130" d:DesignWidth="110">
+
+
+    <Grid Style="{StaticResource CardStyle}" Margin="5,0,0,0" HorizontalAlignment="Left" Width="100">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="{Binding ImageUrl}" Grid.Row="0" Style="{StaticResource CardImageStyle}" Width="50" />
+
+        <StackPanel Grid.Row="1" Style="{StaticResource CardStackPanelStyle}">
+            <TextBlock Style="{StaticResource CardTextBlockStyle}" Text="{Binding Time}" HorizontalAlignment="Center" />
+            <TextBlock Style="{StaticResource CardTextBlockStyle}" Text="{Binding TemperatureC}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <Grid Grid.Row="2" Margin="5 0 5 0" Style="{x:Null}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Style="{x:Null}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource CardTextBlockStyle}" Text="Влаж %" />
+                <TextBlock Style="{StaticResource CardTextBlockStyle}" Grid.Row="1" Text="{Binding Humidity}" />
+            </Grid>
+
+            <Grid Grid.Column="1" Style="{x:Null}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource CardTextBlockStyle}" Text="Ощущ С" />
+                <TextBlock Style="{StaticResource CardTextBlockStyle}" Grid.Row="1" Text="{Binding FeelsLikeC}" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

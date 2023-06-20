@@ -9,6 +9,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\Blizzard.png" />
+    <None Remove="img\Cloudy.png" />
+    <None Remove="img\Downpour.png" />
+    <None Remove="img\Line.png" />
+    <None Remove="img\Rainy.png" />
+    <None Remove="img\Snow.png" />
+    <None Remove="img\Sunny.png" />
+    <None Remove="img\Thunderstorm.png" />
+    <None Remove="img\Wind.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\Blizzard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Cloudy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Downpour.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Line.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Wind.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="img\Icon.png" />
   </ItemGroup>
 
@@ -25,6 +55,21 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TheneLib\ThemeLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\Rainy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Snow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sunny.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Thunderstorm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

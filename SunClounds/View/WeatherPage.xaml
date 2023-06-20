@@ -7,17 +7,17 @@
       xmlns:views="clr-namespace:SunClounds.View"
       xmlns:local="clr-namespace:SunClounds.View" xmlns:viewmodel="clr-namespace:SunClounds.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:WeatherViewModel}"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="WeatherPage" Height="500">
+      Title="WeatherPage" Height="530">
 
 
-    <Grid>
-        <Grid Background="#FFFFCCBA" Margin="30,283,36,0" MinHeight="200" VerticalAlignment="Top">
-            <WrapPanel>
-                <Button Content="Температура" Command="{Binding ChangeChartCommand}" CommandParameter="Temperature" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
-                <Button Content="Ощущается как" Command="{Binding ChangeChartCommand}" CommandParameter="FeelsLike" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
-                <Button Content="Давление" Command="{Binding ChangeChartCommand}" CommandParameter="Pressure" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
+    <Grid >
+        <Grid Background="#FFFFCCBA" Margin="30,320,30,0" MinHeight="200" VerticalAlignment="Top" Height="174">
+            <WrapPanel Margin="0,10,0,0">
+                <Button Style="{StaticResource ButtonStyle}" Content="Температура" Command="{Binding ChangeChartCommand}" CommandParameter="Temperature" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Ощущается как" Command="{Binding ChangeChartCommand}" CommandParameter="FeelsLike" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Давление" Command="{Binding ChangeChartCommand}" CommandParameter="Pressure" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
             </WrapPanel>
-            <lvc:CartesianChart Series="{Binding ChartSeries}" LegendLocation="Right" Margin="0,40,0,0">
+            <lvc:CartesianChart Series="{Binding ChartSeries}" LegendLocation="Right" Height="151" VerticalAlignment="Bottom">
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Hour" Labels="{Binding HourlyWeatherTimes}"/>
                 </lvc:CartesianChart.AxisX>
@@ -26,18 +26,47 @@
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
         </Grid>
-        <Grid Background="#FFFFCCBA" Margin="30,175,36,0" Height="103" VerticalAlignment="Top"/>
-        <Grid Grid.Column="1" Background="#FFFFCCBA" Margin="30,80,36,0" Height="84" VerticalAlignment="Top">
-            <TextBlock x:Name="feelsLikeTextBox" HorizontalAlignment="Left" Margin="80,14,0,0" TextWrapping="Wrap" Text="Ощущение:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock x:Name="minTemperatureTextBlock" HorizontalAlignment="Left" Margin="175,14,0,0" TextWrapping="Wrap" Text="Мин." VerticalAlignment="Top" TextAlignment="Center" Width="44" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock x:Name="maxTemperatureTextBlock" HorizontalAlignment="Left" Margin="224,14,0,0" TextWrapping="Wrap" Text="Макс." VerticalAlignment="Top" TextAlignment="Center" Width="55" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock x:Name="pressureTextBlock" HorizontalAlignment="Left" Margin="284,14,0,0" TextWrapping="Wrap" Text="Давление:" VerticalAlignment="Top" TextAlignment="Center" Width="107" Height="50" FontSize="16" Foreground="#FFF0F0F0" RenderTransformOrigin="0.315,0.46"/>
-            <TextBlock x:Name="humidityTextBlock" HorizontalAlignment="Left" Margin="396,14,0,0" TextWrapping="Wrap" Text="Влажность:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock x:Name="windSpeedTextBlock" HorizontalAlignment="Left" Margin="491,14,0,0" TextWrapping="Wrap" Text="Ветер м\с:" VerticalAlignment="Top" TextAlignment="Center" Height="50" Width="85" FontSize="16" Foreground="#FFF0F0F0"/>
-            <TextBlock x:Name="windDegreeTextBlock" HorizontalAlignment="Left" Margin="581,14,0,0" TextWrapping="Wrap" Text="Ветер °:" VerticalAlignment="Top" Width="65" Height="50" TextAlignment="Center" FontSize="16" Foreground="#FFF0F0F0"/>
+        <Border  Margin="30,175,30,0" Height="130" VerticalAlignment="Top">
+
+            <ListView Style="{StaticResource ListViewStyle}" Margin="0,0,0,0" 
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+          >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth1"/>
+                        <Setter Property="Margin" Value="0"/>
+                        <Setter Property="Padding" Value="0"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Background="Transparent">
+                    <ItemsControl ItemsSource="{Binding WeatherData.Forecast.ForecastDays[0].HourlyWeather}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:UserControlCard/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </ListView>
+
+        </Border>
+        <Grid Background="#FFFFCCBA"  Grid.Column="1"  Margin="30,80,30,0" Height="84" VerticalAlignment="Top">
+            <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="feelsLikeTextBox" HorizontalAlignment="Left" Margin="80,14,0,0" TextWrapping="Wrap" Text="Ощущение:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="minTemperatureTextBlock" HorizontalAlignment="Left" Margin="175,14,0,0" TextWrapping="Wrap" Text="Мин." VerticalAlignment="Top" TextAlignment="Center" Width="44" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="maxTemperatureTextBlock" HorizontalAlignment="Left" Margin="224,14,0,0" TextWrapping="Wrap" Text="Макс." VerticalAlignment="Top" TextAlignment="Center" Width="55" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="pressureTextBlock" HorizontalAlignment="Left" Margin="284,14,0,0" TextWrapping="Wrap" Text="Давление:" VerticalAlignment="Top" TextAlignment="Center" Width="107" Height="50" FontSize="16" Foreground="#FFF0F0F0" RenderTransformOrigin="0.315,0.46"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="humidityTextBlock" HorizontalAlignment="Left" Margin="396,14,0,0" TextWrapping="Wrap" Text="Влажность:" VerticalAlignment="Top" TextAlignment="Center" Width="90" Height="50" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="windSpeedTextBlock" HorizontalAlignment="Left" Margin="491,14,0,0" TextWrapping="Wrap" Text="Ветер м\с:" VerticalAlignment="Top" TextAlignment="Center" Height="50" Width="85" FontSize="16" Foreground="#FFF0F0F0"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" x:Name="windDegreeTextBlock" HorizontalAlignment="Left" Margin="581,14,0,0" TextWrapping="Wrap" Text="Ветер °:" VerticalAlignment="Top" Width="65" Height="50" TextAlignment="Center" FontSize="16" Foreground="#FFF0F0F0"/>
         </Grid>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="30,0,0,0" TextWrapping="Wrap" Text="Погода" VerticalAlignment="Top" Width="320" Height="32.04" FontSize="24"/>
-        <Button Content="Настройки" Margin="0,0,30,0" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="170,1,1,1" FontSize="24" HorizontalAlignment="Right" Width="320" Grid.Column="1" Height="35" VerticalAlignment="Top"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Column="1" HorizontalAlignment="Left" Margin="30,0,0,0" TextWrapping="Wrap" Text="Погода" VerticalAlignment="Top" Width="320" Height="32.04" FontSize="24"/>
+        <Button Style="{StaticResource ButtonStyle}" Content="Настройки" Margin="0,0,30,0" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="170,1,1,1" FontSize="24" HorizontalAlignment="Right" Width="320" Grid.Column="1" Height="35" VerticalAlignment="Top" />
 
     </Grid>
 </Page>

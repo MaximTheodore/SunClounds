@@ -12,20 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ThemeLib;
 
 namespace SunClounds.View
 {
     /// <summary>
-    /// Логика взаимодействия для SettingsPage.xaml
+    /// Логика взаимодействия для UserControlCard.xaml
     /// </summary>
-    public partial class SettingsPage : Page
+    public partial class UserControlCard : UserControl
     {
-        public SettingsPage()
+        public UserControlCard()
         {
             InitializeComponent();
-
         }
-
     }
 }

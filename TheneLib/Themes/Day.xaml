@@ -1,42 +1,80 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="MainColor" Color="#F8C5B4" />
-    <SolidColorBrush x:Key="SecondaryColor" Color="#87B6CA" />
-    <SolidColorBrush x:Key="FocusColor" Color="#3D95B9" />
-    <SolidColorBrush x:Key="BackgroundColor" Color="#3D95B9" />
-    <FontFamily x:Key="AppFont">Jura</FontFamily>
+    <SolidColorBrush x:Key="PrimaryColorDay">#F8C5B4</SolidColorBrush>
+    <SolidColorBrush x:Key="SecondaryColorDay">#87B6CA</SolidColorBrush>
+    <SolidColorBrush x:Key="FocusColorDay">#3D95B9</SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundTextColorDay">#3D95B9</SolidColorBrush>
 
-    <Style x:Key="CustomButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="#F8C5B4" />
-        <!-- Главный цвет -->
-        <Setter Property="Foreground" Value="#FFFF" />
-        <!-- Вторичный цвет -->
-        <Setter Property="BorderBrush" Value="#3D95B9" />
-        <!-- Фокусировочный цвет -->
-        <Setter Property="FontFamily" Value="Jura" />
-        <!-- Цвет текста -->
+    <!-- Day theme styles -->
+    <Style TargetType="TextBox" x:Key="TextboxStyle">
+        <Setter Property="Foreground" Value="#FFFF"></Setter>
+
+        <Setter Property="Background" Value="{StaticResource SecondaryColorDay}" />
         <Setter Property="BorderThickness" Value="0" />
-        <!-- Убираем границу -->
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="AllowDrop" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SecondaryColorDay}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
-    <Style x:Key="CustomTextBoxStyle" TargetType="TextBlock">
-        <Setter Property="Background">
-            <Setter.Value>
-                <SolidColorBrush Color="#F8C5B4" Opacity="0.5" />
-                <!-- Вторичный цвет с полупрозрачностью 50% -->
-            </Setter.Value>
-        </Setter>
-        <!-- Убираем границу -->
+
+    <Style TargetType="Button" x:Key="ButtonStyle" >
+        <Setter Property="Foreground" Value="#FFFF"></Setter>
+
+        <Setter Property="Background" Value="{StaticResource SecondaryColorDay}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="FontFamily" Value="Jura" />
-        <!-- Шрифт -->
-        <!-- Отображение кнопки очистки -->
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+        <Setter Property="Foreground" Value="#FFFF"></Setter>
+        <Setter Property="FontFamily" Value="Jura" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="LabelStyle">
+        <Setter Property="Foreground" Value="#FFFF"></Setter>
+
+        <Setter Property="FontFamily" Value="Jura" />
+    </Style>
+
+    <Style TargetType="ListView" x:Key="ListViewStyle">
+        <Setter Property="Foreground" Value="#FFFF"></Setter>
+
+        <Setter Property="FontFamily" Value="Jura" />
+    </Style>
+
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="{StaticResource PrimaryColorDay}" />
+    </Style>
+
+
+
+
+    <Style x:Key="CardStyle" TargetType="UserControl">
+        <Setter Property="Background" Value="#87B6CA" />
+    </Style>
+
+    <Style x:Key="CardStackPanelStyle" TargetType="StackPanel">
+        <Setter Property="Background" Value="#3D95B9" />
+    </Style>
+
+    <Style x:Key="CardGridStyle" TargetType="StackPanel">
+        <Setter Property="Background" Value="#3D95B9" />
+    </Style>
+
+    <Style x:Key="CardTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="#87B6CA" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="FontFamily" Value="Jura" />
+    </Style>
+   
+    <Style x:Key="CardTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Jura" />
+    </Style>
+    <Style x:Key="CardImageStyle" TargetType="Image">
+        <Setter Property="Margin" Value="0 5" />
     </Style>
 </ResourceDictionary>

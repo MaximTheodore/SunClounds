@@ -41,6 +41,8 @@ namespace SunClounds.ViewModel
         }
        
 
+
+
         public WeatherModel WeatherData
         {
             get { return weatherData; }
@@ -205,6 +207,18 @@ namespace SunClounds.ViewModel
         private string feelsLike;
 
         public string FeelsLike { get => feelsLike; set => SetProperty(ref feelsLike, value); }
+
+        private string feelsLikeC;
+
+        public string FeelsLikeC { get => feelsLikeC; set => SetProperty(ref feelsLikeC, value); }
+
+        private ImageSource imageUrl;
+
+        public ImageSource ImageUrl { get => imageUrl; set => SetProperty(ref imageUrl, value); }
+
+        private string temperatureC;
+
+        public string TemperatureC { get => temperatureC; set => SetProperty(ref temperatureC, value); }
     }
    
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SunClounds.View;
+using SunClounds.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ThemeLib;
 
+
+
 namespace SunClounds
 {
     /// <summary>
@@ -28,6 +31,7 @@ namespace SunClounds
         {
             InitializeComponent();
             ThemeManager.SetThemeBasedOnTime();
+            DataContext = CommandForBtn.SharedCommand;
         }
 
 
@@ -59,7 +63,6 @@ namespace SunClounds
                 string humidity = weatherData.current.humidity;
 
                 Window1 window1 = new Window1(cityName, feelsLike, minTemperature, maxTemperature, pressure, windSpeed, windDegree, humidity);
-
                 window1.Show();
                 this.Close();
             }

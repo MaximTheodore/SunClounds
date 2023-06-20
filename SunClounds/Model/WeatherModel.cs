@@ -85,8 +85,21 @@ namespace SunClounds.Model
 
     public class HourlyWeatherModel
     {
+        private string time;
+
         [JsonProperty("time")]
-        public string Time { get; set; }
+        public string Time
+        {
+            get { return time; }
+            set
+            {
+                // Parse the time string to DateTime and format it as "HH:mm"
+                if (DateTime.TryParse(value, out DateTime parsedTime))
+                    time = parsedTime.ToString("HH:mm");
+                else
+                    time = value;
+            }
+        }
 
         [JsonProperty("temp_c")]
         public double TemperatureC { get; set; }
@@ -108,5 +121,34 @@ namespace SunClounds.Model
 
         [JsonProperty("condition")]
         public ConditionModel Condition { get; set; }
+
+        public string ImageUrl
+        {
+            get
+            {
+                string condition = Condition?.Text?.ToLower();
+                switch (condition)
+                {
+                    case "солнечно":
+                        return "/img/Sunny.png";
+                    case "ясно":
+                        return "/img/Sunny.png";
+                    case "дождь":
+                        return "/img/Rainy.png";
+                    case "переменная облачность":
+                        return "/img/Cloudy.png";
+                    case "облачно":
+                        return "/img/Cloudy.png";
+                    case "снег":
+                        return "/img/Snow.png";
+                    case "thunderstorm":
+                        return "/img/Thunderstorm.png";
+                    case "пасмурно":
+                        return "/img/Downpour.png";
+                    default:
+                        return null;
+                }
+            }
+        }
     }
 }

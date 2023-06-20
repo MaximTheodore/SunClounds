@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunClounds.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,9 @@ namespace SunClounds.View
         public Window1(string cityName, string feelsLike, string minTemperature, string maxTemperature, string pressure, string windSpeed, string windDegree, string humidity)
         {
             InitializeComponent();
+            ThemeManager.SetThemeBasedOnTime();
             Page.Content = new WeatherPage(cityName, feelsLike, minTemperature, maxTemperature, pressure, windSpeed, windDegree, humidity);
+            DataContext = CommandForBtn.SharedCommand;
 
             cityNameTextBlock.Text = cityName;
         }
