@@ -40,17 +40,18 @@ namespace ThemeLib
                 SetTheme(themeName);
                 SetBackgroundImage(backgroundImage);
             }
-
-            // Create a DispatcherTimer to update the theme periodically
+            themeName = "Day";
+            backgroundImage = new BitmapImage(new Uri("pack://application:,,,/ThemeLib;component/Themes/Day.png"));
+            SetTheme(themeName);
+            SetBackgroundImage(backgroundImage);
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMinutes(1); // Update the theme every minute
+            timer.Interval = TimeSpan.FromMinutes(1); 
             timer.Tick += Timer_Tick;
             timer.Start();
         }
 
         private static void Timer_Tick(object sender, EventArgs e)
         {
-            // Update the theme based on the current time
             SetThemeBasedOnTime();
         }
 

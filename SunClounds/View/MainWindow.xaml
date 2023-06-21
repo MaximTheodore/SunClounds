@@ -7,10 +7,9 @@
         xmlns:custom="clr-namespace:ThemeLib;assembly=ThemeLib" 
         xmlns:viewmodel="clr-namespace:SunClounds.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:CommandForBtn}"
         mc:Ignorable="d"
-        Style="{x:Null}"
         WindowStyle="None"
         Title="SunClounds" MaxHeight="450" MaxWidth="800" Height="450" Width="800">
-    <Grid Style="{x:Null}">
+    <Grid >
         <Grid HorizontalAlignment="Center" Width="800" Height="450" VerticalAlignment="Bottom">
 
             <Button Content="✖" Margin="770,10,10,0" VerticalAlignment="Top" Height="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF72AAC5" Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
